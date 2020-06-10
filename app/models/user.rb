@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :follows
-    has_many :messages
+    has_many :follows, dependent: :destroy
+    has_many :messages, dependent: :destroy
 
-    has_many :group_users
+    has_many :group_users, dependent: :destroy
 
     has_many :groups , through: :group_users
     has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'

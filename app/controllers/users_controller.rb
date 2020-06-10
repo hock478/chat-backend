@@ -8,7 +8,12 @@ class UsersController < ApplicationController
     def profile
         token = request.headers["Authenticate"]
         user = User.find(decode(token)["user_id"])
-        render json: user
+        render json: user.as_json(:include => [:following, :followers])
+    end
+
+    def show
+        user = User.find(params[:id])
+        render json: user.as_json(:include => [:following, :followers])
     end
 
     def create
