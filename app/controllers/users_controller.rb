@@ -25,7 +25,11 @@ class UsersController < ApplicationController
         # user = User.new(users_params)
         user = User.create(users_params)
 
-        if user.valid?
+        if user.profile_pic == nil
+            user.update(profile_pic: "https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg")
+        end
+
+        if user.valid? && user.age != nil && user.age != ""
             user.save
             payload = {user_id: user.id}
             token = encode(payload)
