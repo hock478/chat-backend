@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
   get '/decode_token', to: 'users#profile'
   get '/specific/:username', to: 'users#specific'
+  get '/following_posts/:id', to: 'posts#following_posts'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -36,6 +36,10 @@ message3 = Message.create(user_id: user2.id, content: "Just kidding its cool..",
 follow1 = Follow.create(user_id: user1.id, following_id: user2.id)
 follow2 = Follow.create(user_id: user2.id, following_id: user1.id)
 
+post1 = Post.create(user_id: user2.id, header: "Think before you speak..", content: "I have been noticing a lot of activity on my account where people feel the need to express their opinions in such rude and disrespectful ways. You're taking away from you're point when you convey your message that way.")
+post2 = Post.create(user_id: user3.id, header: "My last week at Flatiron!", content: "I am glad to say I am on my last week at Flatiron School! I want to thank all the people who made this possible, my cohort mates, wonderful coaches and instructors. I'd also like to give a shout out to myself for sticking with the program as it has been one of the most rewarding experiences I have had.")
+post3 = Post.create(user_id: user4.id, header: "Anyone know any good Mexican restaurants in the Bethesda Area?", content: "I really need a spot to take my friend because he refuses to eat Mexican food after getting food poisoining like 8 years ago 😭😭😭")
+
 
 
 

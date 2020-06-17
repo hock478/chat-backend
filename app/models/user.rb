@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :follows, dependent: :destroy
     has_many :messages, dependent: :destroy
+    has_many :posts, dependent: :destroy
 
     has_many :group_users, dependent: :destroy
 
