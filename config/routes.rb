@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :groups
   resources :group_users
   resources :users
+  resources :likes
 
   post '/login', to: 'auth#create'
   get '/decode_token', to: 'users#profile'

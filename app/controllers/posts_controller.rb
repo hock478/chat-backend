@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     def show
         user = User.find(parmams[:id])
         posts = user.posts
-        render json.as_json(:include => [:user])
+        render json.as_json(:include => [:user, :likes])
 
     end
 
@@ -20,6 +20,6 @@ class PostsController < ApplicationController
         user = User.find(params[:id])
         posts_arr = []
         user.following.each{|user| user.posts.each{|post| posts_arr.push(post)} }
-        render json: posts_arr.as_json(:include => [:user])
+        render json: posts_arr.as_json(:include => [:user, :likes])
     end
 end

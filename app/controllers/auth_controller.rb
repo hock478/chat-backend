@@ -10,7 +10,7 @@ class AuthController < ApplicationController
         payload = {user_id: user.id}
         token = encode(payload)
         new_hash = {}
-        new_hash["user_data"] = user.as_json(:include => [:following, :followers])
+        new_hash["user_data"] = user.as_json(:include => [:following, :followers, :posts])
         new_hash["token"] = token
         render json: new_hash
       else

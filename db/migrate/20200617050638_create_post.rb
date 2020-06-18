@@ -5,6 +5,7 @@ class CreatePost < ActiveRecord::Migration[6.0]
       t.string :header
       t.string :content
       t.text :hash_tags, array: true, default: []
+      t.timestamps
 
     end
   end

@@ -2,23 +2,23 @@ class UsersController < ApplicationController
 
     def index
         users = User.all
-        render json: users.as_json(:include => [:following, :followers])
+        render json: users.as_json(:include => [:following, :followers, :posts])
     end
 
     def profile
         token = request.headers["Authenticate"]
         user = User.find(decode(token)["user_id"])
-        render json: user.as_json(:include => [:following, :followers])
+        render json: user.as_json(:include => [:following, :followers, :posts])
     end
 
     def show
         user = User.find(params[:id])
-        render json: user.as_json(:include => [:following, :followers])
+        render json: user.as_json(:include => [:following, :followers, :posts])
     end
 
     def specific
         user = User.find_by(username: params[:username])
-        render json: user.as_json(:include => [:following, :followers])
+        render json: user.as_json(:include => [:following, :followers, :posts])
     end
 
     def create
