@@ -11,11 +11,12 @@ def create
     render json: like
 end
 
-def destroy
+def like_destroy
     like = Like.find_by(post_id: params[:post_id], user_id: params[:user_id])
     k = like
+    
     like.destroy
-    render json: like
+    render json: k
 end
 
 end
