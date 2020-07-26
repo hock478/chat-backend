@@ -43,7 +43,15 @@ class UsersController < ApplicationController
             er["error_message"] = user.errors
             render json: er
         end
+
+
         
+    end
+
+    def delete_user
+        user = User.find(params[:id])
+        user.destroy
+
     end
 
 
